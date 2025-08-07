@@ -67,8 +67,8 @@ Boot the target machine using your prepared USB or recovery ISO.
 #### 📌 Example File Structure
 ```
 /
-├── PartizionaGPT.bat
-├── PartizionaMBR.bat
+├── 1_GPT_Partitioner.bat
+├── 1_MBR_Partitioner.bat
 ├── 2_GPT_WimApplier.bat
 ├── 2_MBR_WimApplier.bat
 ├── install.wim
