@@ -1,8 +1,8 @@
 # 🛠️ Windows Deployment Scripts (MBR & GPT)
 
-Collection of batch scripts to automate the partitioning and deployment of Windows using `.wim` images, supporting both **MBR (BIOS/Legacy)** and **GPT (UEFI)** partitioning styles.
+Collection of batch scripts to automate the partitioning, capturing, and deployment of Windows using `.wim` images, supporting both **MBR (BIOS/Legacy)** and **GPT (UEFI)** partitioning styles.
 
-> ⚠️ **WARNING:** These scripts will erase all data on the selected disk. Use with extreme caution.
+> ⚠️ **WARNING:** These scripts will erase all data on the selected disk or partition. Use with extreme caution.
 
 ---
 
@@ -14,6 +14,7 @@ Collection of batch scripts to automate the partitioning and deployment of Windo
 | `1_MBR_Partitioner.bat`       | Partitions a disk as MBR for BIOS/Legacy systems                    |
 | `2_GPT_WimApplier.bat`    | Applies a WIM image and sets up UEFI bootloader                         |
 | `2_MBR_WimApplier.bat`    | Applies a WIM image and sets up BIOS bootloader with MBR rewrite        |
+| `WimCapturer.bat`         | Captures a selected partition into a WIM image                          |
 
 ---
 
@@ -38,41 +39,39 @@ Boot the target machine using your prepared USB or recovery ISO.
 
 #### ▶️ GPT (UEFI) Workflow
 ```bat
-1_GPT_Partitioner.bat
+GPT_Partitioner.bat
 ```
 - Cleans and partitions the selected disk using GPT
 - Creates EFI, MSR, and Windows partitions
 
 ```bat
-2_GPT_WimApplier.bat
+GPT_WimApplier.bat
 ```
 - Prompts for WIM path, image index, partition letters
 - Applies the image and configures UEFI boot
 
 #### ▶️ MBR (BIOS) Workflow
 ```bat
-1_MBR_Partitioner.bat
+MBR_Partitioner.bat
 ```
 - Cleans and partitions the selected disk using MBR
 - Creates System Reserved and Windows partitions
 
 ```bat
-2_MBR_WimApplier.bat
+MBR_WimApplier.bat
 ```
-
 - Prompts for WIM path, image index, partition letters
 - Applies the image and configures BIOS boot
 - Rewrites MBR boot code with bootsect
 
-#### 📌 Example File Structure
+#### ▶️ Capture a WIM Image
+```bat
+WimCapturer.bat
 ```
-/
-├── 1_GPT_Partitioner.bat
-├── 1_MBR_Partitioner.bat
-├── 2_GPT_WimApplier.bat
-├── 2_MBR_WimApplier.bat
-├── install.wim
-```
+- Prompts for the source drive, destination path, name, and description
+- Captures the selected partition into a `.wim` file using DISM
+
+
 
 #### ⚠️ Disclaimers
 - These scripts are provided as-is and should be tested in a safe environment before use in production.
