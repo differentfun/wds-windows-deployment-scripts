@@ -10,10 +10,10 @@ Collection of batch scripts to automate the partitioning, capturing, and deploym
 
 | Script Name               | Purpose                                                                 |
 |---------------------------|-------------------------------------------------------------------------|
-| `1_GPT_Partitioner.bat`       | Partitions a disk as GPT for UEFI systems                           |
-| `1_MBR_Partitioner.bat`       | Partitions a disk as MBR for BIOS/Legacy systems                    |
-| `2_GPT_WimApplier.bat`    | Applies a WIM image and sets up UEFI bootloader                         |
-| `2_MBR_WimApplier.bat`    | Applies a WIM image and sets up BIOS bootloader with MBR rewrite        |
+| `GPT_Partitioner.bat`       | Partitions a disk as GPT for UEFI systems                             |
+| `MBR_Partitioner.bat`       | Partitions a disk as MBR for BIOS/Legacy systems                      |
+| `GPT_WimApplier.bat`    | Applies a WIM image and sets up UEFI bootloader                           |
+| `MBR_WimApplier.bat`    | Applies a WIM image and sets up BIOS bootloader with MBR rewrite          |
 | `WimCapturer.bat`         | Captures a selected partition into a WIM image                          |
 
 ---
